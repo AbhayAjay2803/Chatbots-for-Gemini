@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="{% static 'chat_app/styles.css' %}">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box">
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        </div>
+        <form id="chat-form" method="post">
+            {% csrf_token %}
+            <input type="text" id="query" name="query" placeholder="Type a message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
